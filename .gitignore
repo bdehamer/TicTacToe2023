@@ -1,6 +1,7 @@
 __pycache__/
 venv/
 .git/
+.config/
 main.py
 .replit
 .breakpoints
