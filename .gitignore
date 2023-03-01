@@ -1,5 +1,7 @@
 __pycache__/
 venv/
+.git/
+.config/
 .replit
 .breakpoints
 *.txt

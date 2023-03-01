@@ -5,7 +5,6 @@ import importlib
 import example0
 import example1
 import example2
-import pyle
 
 modules = [example0, example1, example2]
 
@@ -79,7 +78,7 @@ def play_tournament(modules):
   return scores
   
 def play_iterative_rounds(player1, player2):
-  number_of_rounds = 10
+  number_of_rounds = 100
   score1 = 0
   score2 = 0
   for round in range(number_of_rounds):
