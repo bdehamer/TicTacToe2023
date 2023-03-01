@@ -9,4 +9,3 @@ venv/
 *.lock
 *.toml
 main.py
-.gitignore
