@@ -1,6 +1,5 @@
 __pycache__/
 venv/
-main.py
 .replit
 .breakpoints
 *.txt
