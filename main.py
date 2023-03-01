@@ -7,7 +7,7 @@ import example1
 import example2
 import pyle
 
-modules = [example0, pyle]
+modules = [example0, example1, example2]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
