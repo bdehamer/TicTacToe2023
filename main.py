@@ -5,8 +5,9 @@ import importlib
 import example0
 import example1
 import example2
+import leuallen
 
-modules = [example0, example1, example2]
+modules = [example0, example1, example2, leuallen]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
@@ -19,12 +20,7 @@ for module in modules:
     if not hasattr(module, required_variable):
       setattr(module, required_variable, 'missing assignment')
 
-def print_board(board):
-  print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
-  print('-+-+-')
-  print(board[1][0]+'|'+board[1][1]+'|'+board[1][2])
-  print('-+-+-')
-  print(board[2][0]+'|'+board[2][1]+'|'+board[2][2])
+
 
 def check_winner(board):
   for r in range(3):
