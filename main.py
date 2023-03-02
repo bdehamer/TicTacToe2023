@@ -5,8 +5,9 @@ import importlib
 import example0
 import example1
 import example2
+import declaire
 
-modules = [example0, example1, example2]
+modules = [example0, example1, example2, declaire]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
@@ -106,43 +107,43 @@ def play_round(player1, player2, score1, score2):
     #player1 is X
     turns = 0
     while turns < 18:
-      r, c = player1.move('X', board, score1)
+      r, c = player1.move('X', board[:], score1)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'X'
-        if check_winner(board) == 'X':
-          return '1'
-        if check_winner(board) == 'C':
-          return 'C'
-      r, c = player2.move('O', board, score2)
+      if check_winner(board) == 'X':
+        return '1'
+      if check_winner(board) == 'C':
+        return 'C'
+      r, c = player2.move('O', board[:], score2)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'O'
-        if check_winner(board) == 'O':
-          return '2'
-        if check_winner(board) == 'C':
-          return 'C'
+      if check_winner(board) == 'O':
+        return '2'
+      if check_winner(board) == 'C':
+        return 'C'
     return 'C'
   else:
     #player2 is X
     turns = 0
     while turns < 18:
-      r, c = player2.move('X', board, score1)
+      r, c = player2.move('X', board[:], score2)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'X'
-        if check_winner(board) == 'X':
-          return '2'
-        if check_winner(board) == 'C':
-          return 'C'
-      r, c = player1.move('O', board, score2)
+      if check_winner(board) == 'X':
+        return '2'
+      if check_winner(board) == 'C':
+        return 'C'
+      r, c = player1.move('O', board[:], score1)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'O'
-        if check_winner(board) == 'O':
-          return '1'
-        if check_winner(board) == 'C':
-          return 'C'
+      if check_winner(board) == 'O':
+        return '1'
+      if check_winner(board) == 'C':
+        return 'C'
     return 'C'
 
 def make_reports(modules, scores):
