@@ -5,9 +5,10 @@ import importlib
 import example0
 import example1
 import example2
-import pyle
+import declaire
 
-modules = [example0, example1, example2]
+
+modules = [example0, example1, example2, declaire]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],

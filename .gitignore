@@ -8,3 +8,5 @@ venv/
 *.nix
 *.lock
 *.toml
+main.py
+.gitignore
