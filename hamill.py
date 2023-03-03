@@ -47,10 +47,10 @@ def move(player, board, score):
       r = random.randint(0,2)
       c = random.randint(0,2)
   
-  print_board(board)
+  #print_board(board)
   return r, c
   
-  
+  '''
   if old_score != score:
     old_player = last_player
     if score < old_score:
@@ -62,4 +62,5 @@ def move(player, board, score):
     print_board(old_board)
     game = game + 1
     print("new game", game)
+   '''
   
