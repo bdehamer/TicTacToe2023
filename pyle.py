@@ -12,7 +12,6 @@ old_board = [[' ', ' ', ' '],
              [' ', ' ', ' ']]
 
 
-
 def print_board(board):
   print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
   print('-+-+-')
