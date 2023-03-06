@@ -7,6 +7,7 @@ import example1
 import example2
 import declaire
 
+
 modules = [example0, example1, example2, declaire]
 
 test_board = [['O', 'X', 'O'],
