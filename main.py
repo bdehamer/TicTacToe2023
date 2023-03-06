@@ -7,9 +7,21 @@ import example1
 import example2
 import declaire
 import baierl
+import bristol
+import dene
+import hamill
+import jacobsen
+import McDonough
+import mendoza
+import osman
+import pelletier
+import taing
+import pyle
 
 number_of_rounds = 100
-modules = [example0, example1, example2, declaire]
+modules = [example0, example1, example2, declaire,
+           bristol, dene, hamill, jacobsen, McDonough,
+           mendoza, osman, pelletier, pyle]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
@@ -74,7 +86,7 @@ def play_tournament(modules):
       # choose X and O
       player1 = modules[first_team_index]
       player2 = modules[second_team_index]
-      score1, score2 = play_iterative_rounds(player1, player2, number_of_rounds) 
+      score1, score2 = play_iterative_rounds(player1, player2) 
       scores[first_team_index][second_team_index] = score1
       # Redundant, but record this for the other player, from their perspective
       scores[second_team_index][first_team_index] = score2
