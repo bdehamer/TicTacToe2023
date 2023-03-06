@@ -8,8 +8,8 @@ import example2
 import declaire
 import baierl
 
-modules = [example0, example1, example2, declaire, baierl]
 number_of_rounds = 100
+modules = [example0, example1, example2, declaire]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
@@ -80,7 +80,8 @@ def play_tournament(modules):
       scores[second_team_index][first_team_index] = score2
   return scores
   
-def play_iterative_rounds(player1, player2, number_of_rounds):
+def play_iterative_rounds(player1, player2):
+
   score1 = 0
   score2 = 0
   for round in range(number_of_rounds):
