@@ -10,7 +10,6 @@ def move(player, board, score):
   go = False
 
   while go == False:
-    #print("guh")
     if board[1][1] == ' ':
       r = 1
       c = 1
