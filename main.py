@@ -5,9 +5,24 @@ import importlib
 import example0
 import example1
 import example2
-import leuallen
 
-modules = [example0, example1, example2, leuallen]
+import declaire
+import baierl
+import bristol
+import dene
+import hamill
+import jacobsen
+import McDonough
+import mendoza
+import osman
+import pelletier
+import taing
+import pyle
+
+number_of_rounds = 100
+modules = [example0, example1, example2, declaire,
+           bristol, dene, hamill, jacobsen, McDonough,
+           mendoza, osman, pelletier, pyle]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
@@ -20,7 +35,12 @@ for module in modules:
     if not hasattr(module, required_variable):
       setattr(module, required_variable, 'missing assignment')
 
-
+def print_board(board):
+  print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
+  print('-+-+-')
+  print(board[1][0]+'|'+board[1][1]+'|'+board[1][2])
+  print('-+-+-')
+  print(board[2][0]+'|'+board[2][1]+'|'+board[2][2]+'\n')
 
 def check_winner(board):
   for r in range(3):
@@ -74,7 +94,7 @@ def play_tournament(modules):
   return scores
   
 def play_iterative_rounds(player1, player2):
-  number_of_rounds = 100
+
   score1 = 0
   score2 = 0
   for round in range(number_of_rounds):
@@ -102,43 +122,47 @@ def play_round(player1, player2, score1, score2):
     #player1 is X
     turns = 0
     while turns < 18:
-      r, c = player1.move('X', board, score1)
+      #print_board(board)
+      r, c = player1.move('X', board[:], score1)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'X'
-        if check_winner(board) == 'X':
-          return '1'
-        if check_winner(board) == 'C':
-          return 'C'
-      r, c = player2.move('O', board, score2)
+      if check_winner(board) == 'X':
+        return '1'
+      if check_winner(board) == 'C':
+        return 'C'
+      r, c = player2.move('O', board[:], score2)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'O'
-        if check_winner(board) == 'O':
-          return '2'
-        if check_winner(board) == 'C':
-          return 'C'
+      if check_winner(board) == 'O':
+        return '2'
+      if check_winner(board) == 'C':
+        return 'C'
+    #print_board(board)
     return 'C'
   else:
     #player2 is X
     turns = 0
     while turns < 18:
-      r, c = player2.move('X', board, score1)
+      #print_board(board)
+      r, c = player2.move('X', board[:], score2)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'X'
-        if check_winner(board) == 'X':
-          return '2'
-        if check_winner(board) == 'C':
-          return 'C'
-      r, c = player1.move('O', board, score2)
+      if check_winner(board) == 'X':
+        return '2'
+      if check_winner(board) == 'C':
+        return 'C'
+      r, c = player1.move('O', board[:], score1)
       if r >=0 and r <= 2 and c >= 0 and c <= 2:
         if board[r][c] == ' ':
           board[r][c] = 'O'
-        if check_winner(board) == 'O':
-          return '1'
-        if check_winner(board) == 'C':
-          return 'C'
+      if check_winner(board) == 'O':
+        return '1'
+      if check_winner(board) == 'C':
+        return 'C'
+    #print_board(board)
     return 'C'
 
 def make_reports(modules, scores):
