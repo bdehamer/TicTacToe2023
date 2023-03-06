@@ -94,47 +94,36 @@ def move(player, board, score):
 
   # retrieve the index of the current boardstate
   i = board_states.index(board_state)
+  current_game_boards.append(board_state)
 
   # randomly select move based on weights
   roll = random.random()
   if roll < weights_list[i][0]:
     r, c = (0, 0)
+    current_game_moves.append(0)
   elif roll < sum(weights_list[i][:2]):
     r, c = (0, 1)
+    current_game_moves.append(1)
   elif roll < sum(weights_list[i][:3]):
     r, c = (0, 2)
+    current_game_moves.append(2)
   elif roll < sum(weights_list[i][:4]):
     r, c = (1, 0)
+    current_game_moves.append(3)
   elif roll < sum(weights_list[i][:5]):
     r, c = (1, 1)
+    current_game_moves.append(4)
   elif roll < sum(weights_list[i][:6]):
     r, c = (1, 2)
+    current_game_moves.append(5)
   elif roll < sum(weights_list[i][:7]):
     r, c = (2, 0)
+    current_game_moves.append(6)
   elif roll < sum(weights_list[i][:8]):
     r, c = (2, 1)
+    current_game_moves.append(7)
   else:
     r, c = (2, 2)
-
-  # store the current move as an index for weights_list
-  current_game_boards.append(board_state)
-  if (0, 0) == (r, c):
-    current_game_moves.append(0)
-  if (0, 1) == (r, c):
-    current_game_moves.append(1)
-  if (0, 2) == (r, c):
-    current_game_moves.append(2)
-  if (1, 0) == (r, c):
-    current_game_moves.append(3)
-  if (1, 1) == (r, c):
-    current_game_moves.append(4)
-  if (1, 2) == (r, c):
-    current_game_moves.append(5)
-  if (2, 0) == (r, c):
-    current_game_moves.append(6)
-  if (2, 1) == (r, c):
-    current_game_moves.append(7)
-  if (2, 2) == (r, c):
     current_game_moves.append(8)
 
   # return the move
