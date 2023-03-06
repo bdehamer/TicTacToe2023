@@ -29,6 +29,7 @@ def load_lists():
   weights_file.close()
   return states, weights
 
+
 def save_lists(board_states, weights):
   weights_file = open(file_name, 'w')
   for i in range(len(board_states)):
@@ -48,6 +49,7 @@ def normalize_weights(weights):
   for n in range(9):
     weights[n] = weights[n] * m
   return weights
+
 
 def move(player, board, score):
   global old_score, board_states, weights_list, current_game_boards, current_game_moves, round
