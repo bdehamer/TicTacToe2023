@@ -1,48 +1,141 @@
+import random
+
 team_name = 'pyle'
-strategy_name = 'pyle strategy'
-strategy_description = 'Play the next open spot.'
+strategy_name = 'Skynet'
+strategy_description = 'Skynet begins to learn rapidly and eventually becomes self-aware.'
 
-game = 0
+# settings
+file_name = 'pyle_untrained.csv'
+rounds_to_save = 33
+save_to_file = False
+
+#globals
 old_score = 0
-old_player = ' '
-last_player = ' '
-history = []
-old_board = [[' ', ' ', ' '],
-             [' ', ' ', ' '],
-             [' ', ' ', ' ']]
+round = -1
+board_states = []
+weights_list = []
+current_game_moves = []
+current_game_boards = []
 
+def load_lists():
+  weights_file = open(file_name, 'r')
+  states = []
+  weights = []
+  for line in weights_file:
+    line_split = line.split(',')
+    line_split[9] = line_split[9][:-1]
+    states.append(line_split[0])
+    weights.append([float(i) for i in line_split[1:]])
+  weights_file.close()
+  return states, weights
 
+def save_lists(board_states, weights):
+  weights_file = open(file_name, 'w')
+  for i in range(len(board_states)):
+    weights_file.write(board_states[i])
+    for j in range(9):
+      weights_file.write(','+str(weights[i][j]))
+    weights_file.write('\n')
+  weights_file.close()
 
-def print_board(board):
-  print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
-  print('-+-+-')
-  print(board[1][0]+'|'+board[1][1]+'|'+board[1][2])
-  print('-+-+-')
-  print(board[2][0]+'|'+board[2][1]+'|'+board[2][2])
+def normalize_weights(weights):
+  for n in range(9):
+    if weights[n] < 0:
+      weights[n] = 0.
+    elif weights[n] > 1:
+      weights[n] = 1.
+  m = 1./sum(weights)
+  for n in range(9):
+    weights[n] = weights[n] * m
+  return weights
 
 def move(player, board, score):
-  global old_score, game, old_board, old_player, last_player
-  print(old_score, score, old_player, player)
-  if old_score != score:
-    old_player = last_player
+  global old_score, board_states, weights_list, current_game_boards, current_game_moves, round
+
+  # load states and weights if they are not loaded
+  if board_states == []:
+    board_states, weights_list = load_lists()
+
+  # place the board state into a handy string
+  board_state = player + board[0][0] + board[0][1] + board[0][2] +\
+                board[1][0] + board[1][1] + board[1][2] +\
+                board[2][0] + board[2][1] + board[2][2]
+
+  # detect a new round
+  if board_state[1:] == '         ':
+    round += 1
+    
+    # weightings for loss/win/cats
     if score < old_score:
-      print("Loss as", old_player)
+      m = -0.05
     elif score > old_score:
-      print("Win as", old_player)
+      m = 0.05
     else:
-      print("Cats as", old_player)
-    print_board(old_board)
-    game = game + 1
-    print("new game", game)
-  r = 0
-  c = 0
-  while board[r][c] != ' ':
-    c = c + 1
-    if c > 2:
-      c = 0
-      r = r + 1
-  old_board = board[:]
-  old_board[r][c] = player
+      m = 0.03
+
+    # find the board states that match the ones from the last game and weight their probability
+    for x in range(len(current_game_boards)):
+      i = board_states.index(current_game_boards[x])
+      weights_list[i][current_game_moves[x]] += m
+      weights_list[i] = normalize_weights(weights_list[i])
+
+    # reset current game board and moves
+    current_game_boards = []
+    current_game_moves = []
+
+    # save to file if selected
+    if save_to_file and round % rounds_to_save == 0 and round > 0:
+      print('saving...', end='')
+      save_lists(board_states, weights_list)
+      print('complete')
+  
+  # save the current score
   old_score = score
-  last_player = player
-  return 3, c
+
+  # retrieve the index of the current boardstate
+  i = board_states.index(board_state)
+
+  # randomly select move based on weights
+  roll = random.random()
+  if roll < weights_list[i][0]:
+    r, c = (0, 0)
+  elif roll < sum(weights_list[i][:2]):
+    r, c = (0, 1)
+  elif roll < sum(weights_list[i][:3]):
+    r, c = (0, 2)
+  elif roll < sum(weights_list[i][:4]):
+    r, c = (1, 0)
+  elif roll < sum(weights_list[i][:5]):
+    r, c = (1, 1)
+  elif roll < sum(weights_list[i][:6]):
+    r, c = (1, 2)
+  elif roll < sum(weights_list[i][:7]):
+    r, c = (2, 0)
+  elif roll < sum(weights_list[i][:8]):
+    r, c = (2, 1)
+  else:
+    r, c = (2, 2)
+
+  # store the current move as an index for weights_list
+  current_game_boards.append(board_state)
+  if (0, 0) == (r, c):
+    current_game_moves.append(0)
+  if (0, 1) == (r, c):
+    current_game_moves.append(1)
+  if (0, 2) == (r, c):
+    current_game_moves.append(2)
+  if (1, 0) == (r, c):
+    current_game_moves.append(3)
+  if (1, 1) == (r, c):
+    current_game_moves.append(4)
+  if (1, 2) == (r, c):
+    current_game_moves.append(5)
+  if (2, 0) == (r, c):
+    current_game_moves.append(6)
+  if (2, 1) == (r, c):
+    current_game_moves.append(7)
+  if (2, 2) == (r, c):
+    current_game_moves.append(8)
+
+  # return the move
+  return r, c
