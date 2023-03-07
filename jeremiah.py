@@ -18,7 +18,7 @@ def move(player, board, score):
     r = 0
     c = 1
   #top left
-  elif ((board[0][1] and board[0][2] == ' ') or (board[2][0] and board[1][0] != ' ') or (board[1][1] and board[2][2] != ' ')) and (board[0][0] == ' '):
+  elif ((board[0][1] and board[0][2] != ' ') or (board[2][0] and board[1][0] != ' ') or (board[1][1] and board[2][2] != ' ')) and (board[0][0] == ' '):
     r = 0
     c = 0
   #top middle
