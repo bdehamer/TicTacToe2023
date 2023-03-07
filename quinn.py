@@ -13,7 +13,7 @@ def print_board(board):
 def move(player, board, score):
   other_spaces = [0, 1, 2]
   r = 0
-  c = 0
+  c = 1
   if board[0][0] == ' ':
     r = 0
     c = 0
