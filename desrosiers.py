@@ -18,15 +18,13 @@ def print_board(board):
 
 # and board[][] != player
 def move(player, board, score):
-  condition = True 
-  print_board(board)
+  condition = True
   # useful for if opponent is in space 
   opponent = not(player or ' ')
   # random just in case
   r = 0
   c = 0
   # answers "which player am i this game?"
-  print(player)
   # return r,c 
   # takes care of vertical 3
   if(board[0][0] == opponent and board[1][0] == opponent and board[2][0] == ' '):
@@ -92,7 +90,6 @@ def move(player, board, score):
   elif(board[0][0] == opponent and board[1][1] == opponent and board[2][2] == ' '):
     r = 2 
     c = 2 
-    print("top left to botttom right situation")
   # R --> L diagonal win 
   elif(board[2][2] == opponent and board[1][1] == opponent and board[0][0] == ' '):
     if(board[0][0] == ' '):
@@ -120,7 +117,6 @@ def move(player, board, score):
     if(board[1][0] == ' '):
       r = 1 
       c = 0
-      print("I am blocking left middle spot")
   elif(board[0][1] == opponent and board[2][1] == opponent and board[1][1] == ' '):
     if(board[1][1] == ' '):
       r = 1 
@@ -157,6 +153,4 @@ def move(player, board, score):
             r = row
             c = col 
             condition = False 
-  print(r, c)
   return r, c
-  print_board(board)
