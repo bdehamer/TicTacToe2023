@@ -6,11 +6,12 @@ import example0
 import example1
 import example2
 import declaire
+import taing
 
 
-number_of_rounds = 100
+number_of_rounds = 10
 
-modules = [example0, example1, example2, declaire]
+modules = [example0, example1, example2, declaire, taing]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
