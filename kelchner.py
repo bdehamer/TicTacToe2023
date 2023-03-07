@@ -18,8 +18,9 @@ def move(player, board, score):
     if c < 0:
       c = 2
       r = r - 1
-     
+'''
   print(r,c)
   print_board(board)
+'''
   
   return r, c
