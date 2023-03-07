@@ -25,6 +25,12 @@ def move(player, board, score):
   elif board[2][0] == ' ':
     r = 2
     c = 0
+  elif board[0][1] == ' ':
+    r = 0
+    c = 1
+  elif board[1][0] == ' ':
+    r = 1
+    c = 0
   else:
     r = random.randint(0,2)
     c = random.randint(0,2)
