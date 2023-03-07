@@ -18,11 +18,11 @@ def move(player, board, score):
   elif board[0][2] == ' ':
     r = 0
     c = 2
-  elif board[0][0] == ' ':
-    r = 0
-    c = 0
   elif board[2][0] == ' ':
     r = 2
+    c = 0
+  elif board[0][0] == ' ':
+    r = 0
     c = 0
   elif board[2][2] == ' ':
     r = 2
