@@ -18,11 +18,12 @@ import osman
 import pelletier
 import taing
 import pyle
+import leuallen
 
 number_of_rounds = 100
 modules = [example0, example1, example2, declaire,
            bristol, dene, hamill, jacobsen, McDonough,
-           mendoza, osman, pelletier, pyle]
+           mendoza, osman, pelletier, pyle, leuallen]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
