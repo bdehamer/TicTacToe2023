@@ -3,19 +3,28 @@ strategy_name = 'logik'
 strategy_description = 'counteracts conventional logic plays.'
 import random as rand
 
+def print_board(board):
+  print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
+  print('-+-+-')
+  print(board[1][0]+'|'+board[1][1]+'|'+board[1][2])
+  print('-+-+-')
+  print(board[2][0]+'|'+board[2][1]+'|'+board[2][2])
 
 def move(player, board, score):
   r = 0
   c = 0
   checkpoint = 0 
   arbscore = 0
+  x= 0
+  print_board(board)
   while checkpoint < 9:
     if board[r][c] == 'X':
-      arbscore += (1*(10^(int(checkpoint))))
+      arbscore += (1*(10^x))
     if board[r][c] == '0':
-      arbscore += (2*(10^(int(checkpoint))))
+      arbscore += (2*(10^x))
     c = c + 1
     checkpoint += 1
+    x += 1
     print(arbscore)
     if c > 2:
       c = 0

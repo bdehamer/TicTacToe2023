@@ -6,8 +6,9 @@ import example0
 import example1
 import example2
 import declaire
+import Thomas
 
-modules = [example0, example1, example2, declaire]
+modules = [example0, example1, example2, declaire, Thomas]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
