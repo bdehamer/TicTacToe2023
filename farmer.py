@@ -1,6 +1,6 @@
 team_name = 'farmer'
-strategy_name = 'farmer strategy'
-strategy_description = 'Take the L'
+strategy_name = 'L strategy'
+strategy_description = 'Makes an L'
 def print_board(board):
   print(board[0][0]+'|'+board[0][1]+'|'+board[0][2])
   print('-+-+-')
