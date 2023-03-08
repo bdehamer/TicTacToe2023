@@ -16,7 +16,7 @@ def move(player, board, score):
   checkpoint = 0 
   arbscore = 0
   x= 0
-  print_board(board)
+
   while checkpoint < 9:
     if board[r][c] == 'X':
       arbscore += (1*(10^x))
@@ -25,7 +25,7 @@ def move(player, board, score):
     c = c + 1
     checkpoint += 1
     x += 1
-    print(arbscore)
+   
     if c > 2:
       c = 0
       r = r + 1
