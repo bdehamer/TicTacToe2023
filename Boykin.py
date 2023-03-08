@@ -1,5 +1,5 @@
 team_name = 'Boykin'
-strategy_name = 'boykin strat'
+strategy_name = 'boykin strategy'
 strategy_description = 'Play the next open spot.'
     
 def move(player, board, score):
