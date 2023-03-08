@@ -1,36 +1,42 @@
-team_name = 'E0'
-strategy_name = 'Best'
-strategy_description = 'Play the best.'
+team_name = 'bristol'
+strategy_name = 'bristol'
+strategy_description = 'diagonals then horiz and vert'
 
-import random
 def move(player, board, score):
-  if player == 'X':
-    r = 0
-    c = 0
-    if board[r][c] != ' ':
+  r = 0
+  c = 0
+  while board[r][c] != ' ':
+    if board[0][0] == ' ':
+      r = 0
+      c = 0
+
+    elif board[2][2] == ' ':
       r = 2
       c = 2
-    else:
-      if board[r][c] != ' ':
-        r = 2
-        c = 0
-      else:
-        if board[1][0] != ' ':
-          r = 2
-          c = 1
-        else:
-          r = 1
-          c = 0
-          if board[r][c] != ' ':
-            r = random.randint(0,2)
-            c = random.randint(0,2)
-      
-  else:
-    r = 1
-    c = 1
-    while board[r][c] != ' ':
-      r = random.randint(0,2)
-      c = random.randint(0,2)
+
+    elif board[0][2] == ' ':
+      r = 0
+      c = 2
+
+    elif board[2][0] == ' ':
+      r = 2
+      c = 0
+
+    elif board[1][1] == ' ':
+      r = 1
+      c = 1
+    elif board[0][1] == ' ':
+      r = 0
+      c = 1
+    elif board[1][0] == ' ':
+      r = 1
+      c = 0
+    elif board[1][2] == ' ':
+      r = 1
+      c = 2
+    elif board[2][1] == ' ':
+      r = 2
+      c = 1
       
     
   

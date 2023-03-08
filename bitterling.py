@@ -1,6 +1,6 @@
 team_name = 'bitterling'
 strategy_name = 'bitterling strategy'
-strategy_description = "random"
+strategy_description = "great"
 import random
 """X plays 1st" """
 def print_board(board):
@@ -11,11 +11,22 @@ def print_board(board):
   print(board[2][0]+'|'+board[2][1]+'|'+board[2][2])
 
 def move(player, board, score):
-  
-    r = random.randint(0,2)
-    c = random.randint(0,2)
+    r = 1
+    c = 1
+   # r = random.randint(0,2)
+    #c = random.randint(0,2)
+    if board[0][0] == ' ' and board[0][0] != player:
+      r = 0
+      c = 0
 
-    while board[r][c] != ' ':
+    elif board[2][0] == ' ' and board[2][0] != player:
+      r = 2
+      c = 0  
+    elif board[0][2] == ' ' and board[0][2] != player:
+      r = 2
+      c = 0  
+    elif board[r][c] != ' ':
+      
       r = random.randint(0,2)
       c = random.randint(0,2)
   #print_board(board)

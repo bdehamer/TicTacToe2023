@@ -38,9 +38,10 @@ def move(player, board, score):
       c = 0
       return r, c
     
-    while board[r][c] != ' ':
+    if board[r][c] != ' ':
       r = random.randint(0,2)
       c = random.randint(0,2)
+      return r, c
     
     
     
