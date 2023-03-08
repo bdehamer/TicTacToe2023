@@ -3,6 +3,7 @@ strategy_name = 'just picking spots tbh'
 strategy_description = 'best spots'
 
 
+
 def move(player, board, score):
   r = 0
   c = 0
