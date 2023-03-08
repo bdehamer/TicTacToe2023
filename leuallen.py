@@ -3,7 +3,6 @@ team_name = 'leuallen'
 strategy_name = 'leuallen strategy'
 strategy_description = 'corner, center, corner?'
 
-
 def move(player, board, score):
   if board[1][1] == ' ':
     r = 1
