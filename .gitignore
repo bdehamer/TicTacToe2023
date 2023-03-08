@@ -2,10 +2,11 @@ __pycache__/
 venv/
 .git/
 .config/
-main.py
 .replit
 .breakpoints
 *.txt
 *.nix
 *.lock
 *.toml
+main.py
+.gitignore
