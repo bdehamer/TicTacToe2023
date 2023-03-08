@@ -5,24 +5,76 @@ import importlib
 import example0
 import example1
 import example2
-
+import pyle
 import declaire
+
 import baierl
+import Barry
+import bitterling
 import bristol
+import Brown
+import bryan
+import davila
 import dene
+import desrosiers
+import farmer
+import ford
+import garcia
 import hamill
 import jacobsen
+import jeremiah
+import johnson
+import kelchner
+import lelevier
+import leuallen
 import McDonough
+import melius
 import mendoza
+import murali
+import neuhoff
 import osman
 import pelletier
+import quinn
+import Rascon
+import salzano
 import taing
-import pyle
+import Thomas
+
 
 number_of_rounds = 100
-modules = [example0, example1, example2, declaire,
-           bristol, dene, hamill, jacobsen, McDonough,
-           mendoza, osman, pelletier, pyle]
+modules = [example1,
+           baierl,
+           Barry,
+           #bitterling,
+           bristol,
+           #Brown,
+           bryan,
+           davila,
+           dene,
+           desrosiers,
+           farmer,
+           ford,
+           garcia,
+           hamill,
+           jacobsen,
+           jeremiah,
+           johnson,
+           kelchner,
+           lelevier,
+           #leuallen,
+           McDonough,
+           melius,
+           mendoza,
+           #murali,
+           neuhoff,
+           osman,
+           pelletier,
+           quinn,
+           Rascon,
+           salzano,
+           taing,
+           #Thomas
+          ]
 
 test_board = [['O', 'X', 'O'],
               ['X', 'X', 'O'],
