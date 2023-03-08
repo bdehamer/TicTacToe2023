@@ -9,7 +9,7 @@ def move(player, board, score):
     c = 1
   elif board[0][1] == ' ' and board[2][1] == ' ':
     r = 0
-    c = 0
+    c = 1
   elif board[0][1] == player and board[2][1] == ' ':
     r = 2
     c = 1
