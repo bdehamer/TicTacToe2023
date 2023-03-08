@@ -1,7 +1,7 @@
 import random
 team_name = 'leuallen'
 strategy_name = 'leuallen strategy'
-strategy_description = 'corner, center, coner?'
+strategy_description = 'corner, center, corner?'
 
 
 def move(player, board, score):
